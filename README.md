@@ -24,10 +24,10 @@ In this tutorial, you'll set up a Domain Controller (DC) and a Client Virtual Ma
 
 <h2>High-Level Deployment and Configuration Steps</h2>
 
-- Part 1
-- Part 2
-- Part 3
-- Part 4
+- Log into Client-1 as mydomain.com\jane_admin. Open System Properties, enable Remote Desktop, and allow domain users to access it. Now, you can log into Client-1 as a non-administrative user.
+- Log into DC-1 as jane_admin, open PowerShell ISE as an administrator, and run a script to create multiple new users. Observe the accounts being created and ensure they appear in the _EMPLOYEES OU in ADUC.
+- After creating the users, attempt to log into Client-1 using one of the newly created accounts. Use the password specified in the script to verify access.
+
 
 <h2>Deployment and Configuration Steps</h2>
 
