@@ -3,7 +3,7 @@
 </p>
 
 <h1>Deploying-Active-Directory-Part-2</h1>
-In this tutorial, you'll set up a Domain Controller (DC) and a Client Virtual Machine (VM) in Azure, where the Domain Controller serves as the DNS server for the Client VM. You'll also configure basic network settings, Active Directory, and ensure proper DNS resolution for seamless communication between both machines.<br />
+This tutorial walks you through enabling Remote Desktop access for non-administrative users on Client-1 and demonstrates how to create multiple user accounts using PowerShell on the Domain Controller. It covers how to grant domain users access to Remote Desktop and test login with newly created accounts. The tutorial also explores observing account creation in Active Directory Users and Computers (ADUC) and logging into Client-1 with those accounts.<br />
 
 
 <h2>Video Demonstration</h2>
