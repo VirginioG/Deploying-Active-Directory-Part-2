@@ -32,22 +32,93 @@ This tutorial walks you through enabling Remote Desktop access for non-administr
 <h2>Deployment and Configuration Steps</h2>
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+
+![Part2Part1](https://github.com/user-attachments/assets/dbefa179-c95d-4fab-a266-3ea5ae9cc6ba)
+
+
+
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+Access the DC-1 server.
+
+Open Server Manager > Manage > Add Roles and Features.
+
+Choose Role-based or feature-based installation, then select Active Directory Domain Services.
+
+Follow the prompts to install AD DS.
+
+After installation, open Server Manager, and click on the Notification Flag. 
+
+Select Promote this server to a domain controller.
+
+Choose Add a new forest and name it mydomain.com (or any other domain name you prefer).
+
+Set up Directory Services Restore Mode (DSRM) password and complete the wizard.
+
+Restart the server when prompted.
+
+After the restart, log into DC-1 as mydomain.com\labuser.
+
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+
+![Part2Part2](https://github.com/user-attachments/assets/b4912754-ae2f-48ff-b6ef-bc312623a047)
+
+
+
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Open Active Directory Users and Computers (ADUC).
+
+Right-click on the domain name (mydomain.com) and select New > Organizational Unit.
+
+Create an OU named _EMPLOYEES.
+
+Create another OU named _ADMINS.
+
+Right-click on the _ADMINS OU, select New > User.
+
+Name the user Jane Doe with the username jane_admin.
+
+Set the password as Cyberlab123!.
+
+Click Next and finish creating the user.
+
+In ADUC, locate the jane_admin user in the _ADMINS OU.
+
+Right-click on jane_admin, select Add to a group, and add it to the Domain Admins group.
+
+Log out of the DC-1 server and log back in as jane_admin (using the credentials mydomain.com\jane_admin).
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+
+![Part2Part3](https://github.com/user-attachments/assets/363d22ac-f87a-4e25-bf4c-ce193b4db0ab)
+
+
+
 </p>
+On Client-1, log in as the local admin user (labuser).
+
+Go to Control Panel > System and Security > System and select Change settings under Computer name, domain, and workgroup settings.
+
+Click Change, select Domain, and enter mydomain.com.
+
+When prompted, enter the credentials for a domain admin (e.g., jane_admin).
+
+Restart Client-1 after the domain join process is complete.
+
+On DC-1, open ADUC and verify that Client-1 appears in the domain.
+
+In ADUC, right-click on mydomain.com, select New > Organizational Unit, and create an OU named _CLIENTS.
+
+Drag Client-1 into the _CLIENTS OU.
+
 <p>
